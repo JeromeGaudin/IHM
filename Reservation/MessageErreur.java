@@ -20,10 +20,10 @@ public class MessageErreur extends JOptionPane {
     +"venir de votre connexion internet ou "+System.getProperty("line.separator")
     +"du serveur.";
 
-    String texteErreurDriver = "Le driver mariadb n'a pas été trouvé, il"+System.getProperty("line.separator")
-    +"peurse trouver a un autre emplacement"+System.getProperty("line.separator")
-    +"dans ce cas changer l'emplacement"+System.getProperty("line.separator")
-    +" dans le Makefile.";
+    String texteErreurDriver = "Le driver mariadb-client.jar n'a pas "+System.getProperty("line.separator")
+    +"été trouvé, ila du être déplacer."+System.getProperty("line.separator")
+    +"il doit se situer à l'emplacement"+System.getProperty("line.separator")
+    +" ../driver/mariadb-client.jar";
 
     String texteErreurRequete = "La requete n'a pas abouti au serveur,"+System.getProperty("line.separator")
     +"cela peut provenir de votre connexion"+System.getProperty("line.separator")

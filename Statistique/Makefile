@@ -40,7 +40,7 @@ Taux.class: Taux.java
 	javac Taux.java
 
 run:
-	java -cp "/export/documents/mariadb-client.jar:." Statistique
+	java -cp "../driver/mariadb-client.jar:." Statistique
 
 clean:
 	rm $(FILES)

@@ -9,6 +9,7 @@ import java.sql.Date;
 public class Ecran extends JFrame {
   public Ecran(Calendar date) {
     super("Reservation");
+    this.setResizable(false);
     this.setSize(1250,750);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLocation(200,200);

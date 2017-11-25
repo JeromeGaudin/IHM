@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.text.DecimalFormat;
 
 public class ControleurChamp implements ActionListener {
   private JTextField champ1;
@@ -41,8 +40,6 @@ public class ControleurChamp implements ActionListener {
           Calendar cal = new GregorianCalendar();
           cal.setTime(date);
 
-          DecimalFormat fd = new DecimalFormat("###.##");
-
           // taux occupation
           if(this.champ2 != null) {
             String str2 = champ2.getText().trim();
@@ -51,16 +48,16 @@ public class ControleurChamp implements ActionListener {
             cal2.setTime(date);
 
             float nbtaux = db.tauxOccupation(cal, cal2);
-            tauxOccupation.setTaux(""+fd.format(nbtaux*100)+"%");
+            tauxOccupation.setTaux(nbtaux*100);
           } else {
             float nbtaux = db.tauxOccupation(cal);
-            tauxOccupation.setTaux(""+fd.format(nbtaux*100)+"%");
+            tauxOccupation.setTaux(nbtaux*100);
           }
 
           // taux non presentation
           if(tauxNonPresentation != null) {
             float nonPres = db.tauxNonPresentation(cal);
-            tauxNonPresentation.setTaux(""+fd.format(nonPres*100)+"%");
+            tauxNonPresentation.setTaux(nonPres*100);
           }
         } catch(IllegalArgumentException ex) {
           // mauvais format

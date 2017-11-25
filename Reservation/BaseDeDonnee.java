@@ -15,7 +15,8 @@ public class BaseDeDonnee {
       try {
         connexionihm = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/projetihm", "projetihm", "mhitejorp");
         try {
-  			connexiongaudin = DriverManager.getConnection("jdbc:mariadb://localhost/nomDeLaBaseDeDonées", "root", "motDePasse"); // ligne a changer
+        		// LIGNE A CHANGER : la ligne en dessous est a changer il faut complété les informations manquantre
+  				connexiongaudin = DriverManager.getConnection("jdbc:mariadb://votreAdresseDuServeurMariadb", "nomDeCompte", "MotDePasse");
   			}catch(SQLException e) {
           this.connexionihm.close();
   				System.err.println("Erreur connexion : base de donnée interne");

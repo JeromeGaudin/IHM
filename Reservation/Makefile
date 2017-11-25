@@ -77,7 +77,7 @@ Main.class: Main.java
 
 
 run:
-	java -cp "/export/documents/mariadb-client.jar:." Main
+	java -cp "../driver/mariadb-client.jar:." Main
 
 clean:
 	rm $(FILES)

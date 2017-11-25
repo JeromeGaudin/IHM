@@ -9,6 +9,7 @@ public class AfficherReservation extends JPanel {
 
 	private List<Reservation> listReservation;
 	private int reservationSelectionner;
+	private ControleurSelectionner controleur;
 
 	public AfficherReservation() {
 
@@ -85,6 +86,17 @@ public class AfficherReservation extends JPanel {
 				this.tabBouton[i].setValeur(i);
 				this.tabBouton[i].setVisible(true);
 			}
+			if(listRes.size()==1) { // il y a qu'une ligne donc elle est séléctionnée de base
+				this.tabBouton[0].setVisible(false);
+				this.reservationSelectionner = 0;
+
+				for(int j=0; j<grilleJLabel[0].length; j++) {
+					grilleJLabel[0][j].setBackground(Color.GRAY);
+				}
+
+				controleur.selectionner(0); //utilise la fonction du controleur
+
+			}
 		}
 		//efface les autres
 		while(i<MAX_LIST-1) {
@@ -94,6 +106,9 @@ public class AfficherReservation extends JPanel {
 			this.grilleJLabel[i][3].setText(" ");
 			this.grilleJLabel[i][4].setText(" ");
 			this.tabBouton[i].setVisible(false);
+			for(int j=0; j<grilleJLabel[i].length; j++) {
+				grilleJLabel[i][j].setBackground(this.getBackground());
+			}
 			i++;
 		}
 	}
@@ -101,7 +116,7 @@ public class AfficherReservation extends JPanel {
 	public void setReservationSelectionner(int a) {
 		for(int i=0; i<grilleJLabel.length; i++) {
 			for(int j=0; j<grilleJLabel[i].length; j++) {
-				grilleJLabel[i][j].setBackground(Color.WHITE);
+				grilleJLabel[i][j].setBackground(this.getBackground());
 			}
 		}
 		for(int i=0; i<grilleJLabel[0].length; i++) {
@@ -122,5 +137,6 @@ public class AfficherReservation extends JPanel {
 		for(int i=0; i<tabBouton.length-1; i++) {
 			tabBouton[i].addActionListener(cont);
 		}
+		this.controleur = cont;
 	}
 }

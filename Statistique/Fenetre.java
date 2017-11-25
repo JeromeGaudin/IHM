@@ -14,6 +14,7 @@ public class Fenetre extends JFrame {
     Taux tauxOccupation1 = new Taux("Taux d'occupation :");
     Taux tauxOccupation2 = new Taux("Taux d'occupation :");
     Taux tauxNonPresentation = new Taux("Taux de non présentation :");
+    tauxNonPresentation.setCouleurInverser(true);
     EntrerUneDate entrer1 = new EntrerUneDate(tauxOccupation1, tauxNonPresentation);
     EntrerDeuxDates entrer2 = new EntrerDeuxDates(tauxOccupation2);
 

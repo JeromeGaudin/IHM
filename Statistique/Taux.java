@@ -1,11 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
+
 
 public class Taux extends JPanel{
   private JLabel jlTaux;
+  private boolean couleurInverser;
 
   public Taux(String nom) {
     super();
+
+    this.couleurInverser = false;
 
     JLabel jlTextTaux = new JLabel(nom);
     jlTaux = new JLabel(" ");
@@ -39,8 +44,35 @@ public class Taux extends JPanel{
 
   }
 
-  public void setTaux(String nouvelValeur) {
-    jlTaux.setText(nouvelValeur);
+  public void setTaux(float nouvelValeur) {
+    Color clr[] = new Color[4];
+    if(couleurInverser) {
+        clr[3] = Color.red;
+        clr[2] = Color.orange;   
+        clr[1] = new Color(0,100,0);
+        clr[0] = new Color(0,200,0);
+    } else {
+        clr[0] = Color.red;
+        clr[1] = Color.orange;   
+        clr[2] = new Color(0,100,0);
+        clr[3] = new Color(0,200,0);
+    }
+    System.out.println(couleurInverser);
+    if(nouvelValeur<=25) {
+        jlTaux.setForeground(clr[0]);
+    } else if (nouvelValeur<=50) {
+        jlTaux.setForeground(clr[1]);        
+    } else if (nouvelValeur<=75) {
+        jlTaux.setForeground(clr[2]);
+    } else {
+        jlTaux.setForeground(clr[3]);
+    }
+    DecimalFormat fd = new DecimalFormat("###.##");
+    jlTaux.setText(""+fd.format(nouvelValeur)+"%");
+  }
+
+  public void setCouleurInverser(boolean d) {
+    this.couleurInverser = d;
   }
 
 }

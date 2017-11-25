@@ -11,9 +11,10 @@ public class BaseDeDonnee {
     try {
       Class.forName("org.mariadb.jdbc.Driver");
       try {
-        connexionihm = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/projetihm", "projetihm", "mhitejorp");
+        connexionihm = DriverManager.getConnection("jdbc:mariadb://dwarves.arda/projetihm", "projetihm", "mhitejorp");
         try {
-  				connexiongaudin = DriverManager.getConnection("jdbc:mariadb://localhost/nomDeLaBaseDeDonnée", "root", "motDePasse"); // ligne à changer
+          // LIGNE A CHANGER : la ligne en dessous est a changer il faut complété les informations manquantre
+          connexiongaudin = DriverManager.getConnection("jdbc:mariadb://votreAdresseDuServeurMariadb", "nomDeCompte", "MotDePasse");
   			}catch(SQLException e) {
           this.connexionihm.close();
   				System.err.println("Erreur connexion : base de donnée interne");
